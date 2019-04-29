@@ -3,7 +3,28 @@ function AddressBook() {
 
     // Aadresse hoitakse listis
     this.contacts = [];
+
+    // Vaikimisi väär, sest pole veel testitud
+    this.initialComplete = false;
 }
+
+// Asünkroonne
+AddressBook.prototype.getInitialContacts = function (cb) {
+
+    // Et saaks kasutada this-i praeguse hetke väärtust ka hiljem(this väärtus muutub pidevalt),
+    // tuleb määrata see muutuja väärtusena
+    var self = this;
+
+
+    setTimeout(function () {
+
+        // Kui kõik toimis õigesti määratakse muutuja tõeseks
+        self.initialComplete = true;
+        if (cb) {
+            return cb();
+        }
+    })
+};
 
 // Funktsioon addContact, mis lisab etteantud kontakti contacts listi
 AddressBook.prototype.addContact = function (contact) {
