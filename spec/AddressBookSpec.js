@@ -1,7 +1,19 @@
 describe('Address Book', function () {
+
+    // Kuna neid muutujaid läheb vaja mitmes testis on mõtekas need siin defineerifa
+    // et iga kord seda tegema ei peaks
+    // EELSEADISTUS
+    var addressBook,
+        thisContact;
+
+    // Enne testimise algust luuakse kaks objekti millega testima hakatakse,
+    // tõstetud siia samal põhjusel mis muutujad
+    beforeEach(function () {
+        addressBook = new AddressBook();
+        thisContact = new Contact();
+    });
+
     it('should be able to add a contact', function () {
-        var addressBook = new AddressBook(),
-            thisContact = new Contact();
 
         // Aadressiraamatusse luuakse uus kontakt
         addressBook.addContact(thisContact);
@@ -11,8 +23,6 @@ describe('Address Book', function () {
     });
 
     it('should be able to delete a contact', function () {
-        var addressBook = new AddressBook(),
-            thisContact = new Contact();
 
         addressBook.addContact(thisContact);
         addressBook.deleteContact(0);
