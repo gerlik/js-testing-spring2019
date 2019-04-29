@@ -27,6 +27,17 @@ describe('Address Book', function () {
         addressBook.addContact(thisContact);
         addressBook.deleteContact(0);
 
+        // Kontakti ei tohi eksisteerida
         expect(addressBook.getContact(0)).not.toBeDefined();
+    });
+});
+
+// Uus test
+describe('Async Address Book', function () {
+    it('should grab inital contacts', function () {
+        var addressBook = new AddressBook();
+
+        addressBook.getInitialContacts();
+        expect(addressBook.initialComplete).toBe(true);
     });
 });
