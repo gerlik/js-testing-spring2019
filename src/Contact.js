@@ -1,4 +1,4 @@
-// Uue kontakti loomiseks konstruktor
+// Uue kontakti loomiseks
 function Contact() {
 
 }
