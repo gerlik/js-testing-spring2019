@@ -14,3 +14,8 @@ AddressBook.prototype.addContact = function (contact) {
 AddressBook.prototype.getContact = function (index) {
     return this.contacts[index];
 };
+
+// Funktsioon, mis etteantud indeksi järgi kustutab listist kontakti
+AddressBook.prototype.deleteContact = function (index) {
+    this.contacts.splice(index, 1);
+};
