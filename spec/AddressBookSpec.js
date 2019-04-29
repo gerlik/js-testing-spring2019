@@ -34,10 +34,20 @@ describe('Address Book', function () {
 
 // Uus test
 describe('Async Address Book', function () {
-    it('should grab inital contacts', function () {
-        var addressBook = new AddressBook();
+    var addressBook = new AddressBook();
 
-        addressBook.getInitialContacts();
+    // Enne testimist peab callback olema tagasi tulnud ja saab teha võrdluse real 48
+    beforeEach(function (done) {
+        addressBook.getInitialContacts(function () {
+
+            // Tehtud
+            done();
+        });
+
+    });
+
+    it('should grab inital contacts', function () {
         expect(addressBook.initialComplete).toBe(true);
+        // done();   // Tekkis error sellega, seda pole siia vaja
     });
 });

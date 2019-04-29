@@ -20,6 +20,8 @@ AddressBook.prototype.getInitialContacts = function (cb) {
 
         // Kui kõik toimis õigesti määratakse muutuja tõeseks
         self.initialComplete = true;
+
+        // Tagasta callback
         if (cb) {
             return cb();
         }
